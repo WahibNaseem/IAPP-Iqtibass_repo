@@ -17,7 +17,6 @@ export class QuotePage {
       }
 
       onClose(remove = false) {
-        console.log(remove);
           this.viewCtrl.dismiss(remove);
       }
 

@@ -1,6 +1,6 @@
 
-import { Component, OnInit } from "@angular/core";
-import { NavParams, AlertController } from "ionic-angular";
+import { Component, OnInit } from '@angular/core';
+import { NavParams, AlertController } from 'ionic-angular';
 
 
 import { Quote } from "../../_models/quote.interface";
@@ -30,8 +30,8 @@ export class QuotesPage implements OnInit {
   onAddToFavorite(selectedQuote: Quote) {
     const alert = this.alertCtrl.create({
      title: 'Add Quote',
-     subTitle: 'Are you sure?',
-     message: 'Are you sure you want to add this quote?',
+    //  subTitle: 'Are you sure?',
+     message: 'Sure you want to add this quote?',
      buttons: [
        {
          text: 'Yes, go ahead',
@@ -40,19 +40,35 @@ export class QuotesPage implements OnInit {
          }
        },
        {
-         text: 'No I\'ve chanaged my mind!',
-         role: 'cancel',
-         handler: () => {
-           console.log('Cancelled');
-         }
+         text: 'Cancel',
+         handler: () =>{}
        }
+
     ]
     });
    alert.present();
   }
 
   onRemoveFromFavorites(quote: Quote) {
-    this.quotesService.removeQuoteFromFavorites(quote);
+    const alert = this.alertCtrl.create({
+      title: 'UnFavorite Quote',
+      message: 'Sure you want to unfavorite this?',
+      buttons: [
+        {
+          text: 'Yes, go ahead',
+          handler: () =>{
+            this.quotesService.removeQuoteFromFavorites(quote);
+          }
+      },
+    {
+      text: 'Cancel',
+      role: 'cancel',
+      handler: () =>{
+        // console.log('Cancelled');
+      }
+    }]
+    });
+    alert.present();
   }
 
   isFavorite(quote: Quote) {

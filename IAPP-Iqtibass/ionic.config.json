@@ -1,5 +1,7 @@
 {
   "name": "IAPP-Iqtibass",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
