@@ -38,7 +38,6 @@ export class QuotesPage implements OnInit {
          handler: () => {
            this.quotesService.addQuoteToFavorites(selectedQuote);
          }
-
        },
        {
          text: 'No I\'ve chanaged my mind!',
@@ -46,12 +45,18 @@ export class QuotesPage implements OnInit {
          handler: () => {
            console.log('Cancelled');
          }
-
        }
     ]
     });
    alert.present();
+  }
 
+  onRemoveFromFavorites(quote: Quote) {
+    this.quotesService.removeQuoteFromFavorites(quote);
+  }
+
+  isFavorite(quote: Quote) {
+    return this.quotesService.isQuoteFavorites(quote);
   }
 
 
