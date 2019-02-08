@@ -1,8 +1,6 @@
-import { SettingsService } from './../../services/settings.service';
+import { SettingsService } from "./../../services/settings.service";
 import { Component } from "@angular/core";
-import { ModalController , MenuController} from "ionic-angular";
-
-
+import { ModalController, MenuController } from "ionic-angular";
 
 import { Quote } from "../../_models/quote.interface";
 import { QuotePage } from "./../quote/quote";
@@ -51,10 +49,12 @@ export class FavoritesPage {
   // }
 
   getBackground() {
-    return this.settingsService.isAltBackground() ? 'altQuoteBackground': 'quoteBackground';
-   }
+    return this.settingsService.isAltBackground()
+      ? "altQuoteBackground"
+      : "quoteBackground";
+  }
 
-   isAltBackground() {
-     return this.settingsService.isAltBackground();
-   }
+  isAltBackground() {
+    return this.settingsService.isAltBackground();
+  }
 }
