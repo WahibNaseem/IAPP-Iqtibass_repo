@@ -15,22 +15,20 @@
       <p class="author"> {{ this.quote.person }} </p>
     </ion-card-content>
     <ion-row>
-     <ion-col text-right>
-       <button ion-button
-        clear
-         small
-         (click)="onAddToFavorite(quote)"
-         *ngIf="!isFavorite(quote)">Favorites</button>
+      <!-- <ion-col>
+        <button ion-button small clear>like</button>
+      </ion-col> -->
+      <ion-col text-left>
+        <button ion-button small clear (click)="onShareSocial(quote)"><ion-icon name="share"></ion-icon></button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small (click)="onAddToFavorite(quote)" *ngIf="!isFavorite(quote)">Favorites</button>
 
-         <button ion-button
-         clear
-          small
-           (click)="onRemoveFromFavorites(quote)"
-           *ngIf="isFavorite(quote)"
-           color="danger">
-           Unfavorites
+        <button ion-button clear small (click)="onRemoveFromFavorites(quote)" *ngIf="isFavorite(quote)" color="danger">
+          Unfavorites
         </button>
-     </ion-col>
+      </ion-col>
+
 
 
 
